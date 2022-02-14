@@ -25,7 +25,7 @@ class PaymentController extends Controller
             'scope' => 'read_write',
             'redirect_uri' => config('stripe.redirect_uri')
         ];
-        $connectUri = config('stripe.authorization_uri').'?'.urldecode(http_build_query($queryData));
+        $connectUri = config('stripe.authorization_uri').'?'.http_build_query($queryData);
         return view('index', compact('connectUri'));
     }
 
